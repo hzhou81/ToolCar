@@ -31,33 +31,33 @@ void app_LineWalking(void)
 {
 	int LineL1 = 1, LineL2 = 1, LineR1 = 1, LineR2 = 1;
 
-	bsp_GetLineWalking(&LineL1, &LineL2, &LineR1, &LineR2);
+	bsp_GetLineWalking(&LineL1, &LineL2, &LineR1, &LineR2);	 //获得黑线检测状态
 
-	if( (LineL1 == LOW || LineL2 == LOW) && LineR2 == LOW)
+	if( (LineL1 == LOW || LineL2 == LOW) && LineR2 == LOW)	  //左大弯
     {
-      	Car_SpinLeft(3500, 3500);
+      	Car_SpinLeft(7000, 7000);
 		delay_ms(80);
     }
-    else if ( LineL1 == LOW && (LineR1 == LOW || LineR2 == LOW))
+    else if ( LineL1 == LOW && (LineR1 == LOW || LineR2 == LOW))	 //右大弯
 	{ 
-      	Car_SpinRight(3500, 3500);
+      	Car_SpinRight(7000, 7000);
 		delay_ms(80);
     }  
-    else if( LineL1 == LOW )
+    else if( LineL1 == LOW )	   //左最外侧检测
     {  
 		Car_SpinLeft(3000, 3000);
 		delay_ms(10);
 	}
-    else if ( LineR2 == LOW)
+    else if ( LineR2 == LOW)  	//右最外侧检测
     {  
 		Car_SpinRight(3000, 3000);
 		delay_ms(10);
 	}
-    else if (LineL2 == LOW && LineR1 == HIGH)
+    else if (LineL2 == LOW && LineR1 == HIGH)	  //中间黑线上的传感器微调车左转
     {   
 		Car_Left(2500);   
 	}
-	else if (LineL2 == HIGH && LineR1 == LOW)
+	else if (LineL2 == HIGH && LineR1 == LOW)	  //中间黑线上的传感器微调车右转
     {   
 		Car_Right(2500);   
 	}

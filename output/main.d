@@ -20,6 +20,7 @@
 .\output\main.o: .\Source\BSP\bsp_servo.h
 .\output\main.o: .\Source\PUBLIC\sys\sys.h
 .\output\main.o: .\Source\PUBLIC\delay\delay.h
+.\output\main.o: Source\APP\app_linewalking.h
 .\output\main.o: .\Source\BSP\bsp.h
 .\output\main.o: .\Source\BSP\bsp_gpio.h
 .\output\main.o: .\Source\BSP\bsp_timer.h

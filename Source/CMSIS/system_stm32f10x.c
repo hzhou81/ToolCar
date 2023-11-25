@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V3.5.0
   * @date    11-March-2011
-  * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Source File.
+  * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Source File.这个文件在startup_stm32f10x_md.s之前被执行
   * 
   * 1.  This file provides two functions and one global variable to be called from 
   *     user application:

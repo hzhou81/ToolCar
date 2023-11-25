@@ -13,6 +13,7 @@
 #include "stm32f10x.h"
 #include "app_motor.h"
 #include "app_bluetooth.h"
+#include "app_linewalking.h"
 #include "bsp.h"
 #include "sys.h"
 
@@ -26,5 +27,6 @@ int main(void)
 	while (1)
 	{
 		app_bluetooth_deal();
+		app_LineWalking();
 	}
 }
