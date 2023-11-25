@@ -35,34 +35,34 @@ void app_LineWalking(void)
 
 	if( (LineL1 == LOW || LineL2 == LOW) && LineR2 == LOW)
     {
-      	Car_SpinLeft(7000, 7000);
+      	Car_SpinLeft(3500, 3500);
 		delay_ms(80);
     }
     else if ( LineL1 == LOW && (LineR1 == LOW || LineR2 == LOW))
 	{ 
-      	Car_SpinRight(7000, 7000);
+      	Car_SpinRight(3500, 3500);
 		delay_ms(80);
     }  
     else if( LineL1 == LOW )
     {  
-		Car_SpinLeft(6800, 6800);
+		Car_SpinLeft(3000, 3000);
 		delay_ms(10);
 	}
     else if ( LineR2 == LOW)
     {  
-		Car_SpinRight(6800, 6800);
+		Car_SpinRight(3000, 3000);
 		delay_ms(10);
 	}
     else if (LineL2 == LOW && LineR1 == HIGH)
     {   
-		Car_Left(6500);   
+		Car_Left(2500);   
 	}
 	else if (LineL2 == HIGH && LineR1 == LOW)
     {   
-		Car_Right(6500);   
+		Car_Right(2500);   
 	}
     else if(LineL2 == LOW && LineR1 == LOW) // ¶¼ÊÇ°×É«, Í£Ö¹
     {  
-		Car_Run(7200);
+		Car_Run(3000);
 	}	
 }

@@ -34,7 +34,7 @@ unsigned int overcount = 0;
 float bsp_getUltrasonicDistance(void)
 {
 	float length = 0, sum = 0;
-	u16 tim;
+	u16 tim,count;
 	unsigned int  i = 0;
 
 	/*测5次数据计算一次平均值*/
@@ -49,7 +49,17 @@ float bsp_getUltrasonicDistance(void)
 		TIM_Cmd(TIM2,ENABLE);//回响信号到来，开启定时器计数
 		
 		i+=1; //每收到一次回响信号+1，收到5次就计算均值
-		while(GPIO_ReadInputDataBit(ECHO_PORT, ECHO_PIN) == SET);//回响信号消失
+		while(GPIO_ReadInputDataBit(ECHO_PORT, ECHO_PIN) == SET)//回响信号消失
+	{		//等待回响信号，如果超过一定时间未收到，则必须退出，重新获取数据 fix liusen 20200810
+		count = overcount;
+		if(count >= 40)   //
+		{
+			TIM_Cmd(TIM2, DISABLE);//关闭定时器
+			TIM2->CNT = 0;  //将TIM2计数寄存器的计数值清零
+			overcount = 0;  //中断溢出次数清零
+			return 0;	
+		}
+	}
 		TIM_Cmd(TIM2, DISABLE);//关闭定时器
 		
 		tim = TIM_GetCounter(TIM2);//获取计TIM2数寄存器中的计数值，一边计算回响信号时间
@@ -105,7 +115,7 @@ void bsp_Ultrasonic_Timer2_Init(void)
 	NVIC_Init(&NVIC_InitStructer);
 	TIM_Cmd(TIM2, DISABLE);//关闭定时器使能
 
-}
+} 
 
 void TIM2_IRQHandler(void) //中断，当回响信号很长是，计数值溢出后重复计数，用中断来保存溢出次数
 {

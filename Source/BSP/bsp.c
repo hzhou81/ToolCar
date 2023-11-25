@@ -28,6 +28,8 @@
 void bsp_init(void)
 {
 	delay_init();
+	Ultrasonic_GPIO_Init();				/*超声波GPIO初始化*/
+	bsp_Ultrasonic_Timer2_Init();		/*超声波TIM2初始化*/
 	
 	Colorful_GPIO_Init();				/*七彩探照灯*/
 	Colorful_PWM_Init(1000,0, 1000,0, 1000,0); /*RGB PWM*/
@@ -38,8 +40,7 @@ void bsp_init(void)
 	LineWalking_GPIO_Init();			/*巡线传感器GPIO初始化*/
 	IRAvoid_GPIO_Init();				/*红外避障传感器GPIO初始化*/
 	LightSeeking_GPIO_Init();			/*寻光GPIO初始化*/
-	Ultrasonic_GPIO_Init();				/*超声波GPIO初始化*/
-	bsp_Ultrasonic_Timer2_Init();		/*超声波TIM2初始化*/
+	
 	//Uart1_init(9600);					/*调试接口串口 */
 	Uart2_init(9600);					/*协议处理接口 */
 	Adc_Init();	   						/*电压测量ADC初始化*/

@@ -36,13 +36,13 @@ void app_IRAvoid(void)
 	bsp_GetIRavoid(&IRL1, &IRR1);
   	if( IRL1 == HIGH && IRR1 == LOW)
     {
-      	Car_SpinLeft(7200, 7200);
+      	Car_SpinLeft(3000, 3000);
 		Angle_J1 = 180;
 		bsp_Colorful_Control(0, 1, 0);
     }
     else if ( IRL1 == LOW && IRR1 == HIGH)
     {
-      	Car_SpinRight(7200, 7200);
+      	Car_SpinRight(3000, 3000);
 		Angle_J1 = 0;
 		bsp_Colorful_Control(0, 0, 1);
     }  
@@ -54,7 +54,7 @@ void app_IRAvoid(void)
 	}
     else if(IRL1 == LOW && IRR1 == LOW) 
     {  
-		Car_SpinRight(7200, 7200);
+		Car_SpinRight(3000, 3000);
 		Angle_J1 = 0;
 		bsp_Colorful_Control(1, 0, 0);
 		delay_ms(500);
@@ -78,12 +78,12 @@ void app_IRFollow(void)
 	bsp_GetIRavoid(&IRL1, &IRR1);
   	if( IRL1 == HIGH && IRR1 == LOW)
     {
-      	Car_SpinRight(7200, 7200);
+      	Car_SpinRight(2600, 2600);
 		bsp_Colorful_Control(0, 1, 0);
     }
     else if ( IRL1 == LOW && IRR1 == HIGH)
     {
-      	Car_SpinLeft(7200, 7200);
+      	Car_SpinLeft(2600, 2600);
 		bsp_Colorful_Control(0, 0, 1);
     }  
     else if (IRL1 == HIGH && IRR1 == HIGH)
@@ -93,7 +93,7 @@ void app_IRFollow(void)
 	}
     else if(IRL1 == LOW && IRR1 == LOW) 
     {  
-		Car_Run(7200);
+		Car_Run(2600);
 		Angle_J1 = 0;
 		bsp_Colorful_Control(1, 1, 1);
 		delay_ms(500);

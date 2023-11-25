@@ -57,5 +57,5 @@ SET CPU_CLOCK=0x00000000
 "C:\Keil\ARM\BIN40\ArmCC" --Via ".\output\stm32f10x_tim.__i"
 "C:\Keil\ARM\BIN40\ArmCC" --Via ".\output\stm32f10x_usart.__i"
 "C:\Keil\ARM\BIN40\ArmCC" --Via ".\output\stm32f10x_wwdg.__i"
-"C:\Keil\ARM\BIN40\ArmLink" --Via ".\output\TB6612FNG.lnp"
-C:\Keil\ARM\BIN40\fromelf.exe ".\output\TB6612FNG.axf" --i32combined --output ".\output\TB6612FNG.hex"
+"C:\Keil\ARM\BIN40\ArmLink" --Via ".\output\bluetooth_control.lnp"
+C:\Keil\ARM\BIN40\fromelf.exe ".\output\bluetooth_control.axf" --i32combined --output ".\output\bluetooth_control.hex"

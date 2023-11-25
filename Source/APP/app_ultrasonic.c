@@ -44,14 +44,14 @@ void app_ultrasonic_mode(void)
       while(Len < 25)//再次判断是否有障碍物，若有则转动方向后，继续判断
       {    
 	  	Car_Stop();//停车   
-        Car_SpinRight(3600, 3600);
+        Car_SpinRight(3000, 3000);
 		delay_ms(300);
         Len = (u16)bsp_getUltrasonicDistance();
       }
     }
     else 
 	{
-		Car_Run(3600); //无障碍物，直行  		
+		Car_Run(3000); //无障碍物，直行  		
 	}
 	
 }
@@ -94,22 +94,22 @@ void app_ultrasonic_servo_mode(void)
 
 		if((LeftDistance < 22 ) &&( RightDistance < 22 ))//当左右两侧均有障碍物靠得比较近
 		{
-			Car_SpinRight(6000, 5000);//旋转掉头
+			Car_SpinRight(3000, 2000);//旋转掉头
 			delay_ms(500); //等待舵机到位
 		}
 		else if(LeftDistance >= RightDistance)//左边比右边空旷
 		{      
-			Car_SpinLeft(6000, 5000);//左转
+			Car_SpinLeft(3000, 2000);//左转
 			delay_ms(500); //等待舵机到位
 		}
 		else//右边比左边空旷
 		{
-			Car_SpinRight(6000, 5000); //右转
+			Car_SpinRight(3000, 2000); //右转
 			delay_ms(500); //等待舵机到位
 		}
     }
     else if(Len > 30)//当遇到障碍物时
     {
-		Car_Run(5000); 	 //无障碍物，直行     
+		Car_Run(3000); 	 //无障碍物，直行     
     }
 }

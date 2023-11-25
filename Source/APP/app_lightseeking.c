@@ -36,15 +36,15 @@ void app_LightSeeking(void)
 	bsp_GetLightSeeking(&L1, &R1);
   	if( L1 == LOW && R1 == HIGH)
     {
-		Car_SpinRight(6000, 5000);
+		Car_SpinRight(3000, 2000);
     }
     else if ( L1 == HIGH && R1 == LOW)
     {
-      	Car_SpinLeft(5000, 6000);
+      	Car_SpinLeft(2000, 3000);
     }  
     else if(L1 == HIGH && R1 == HIGH) 
     {  
-		Car_Run(7200);
+		Car_Run(3200);
 	}
 	else if (L1 == LOW && R1 == LOW)
     {   

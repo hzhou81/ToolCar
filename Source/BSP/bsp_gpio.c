@@ -423,7 +423,7 @@ void Ultrasonic_GPIO_Init(void)
   	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
 	/*调用库函数，初始化*/
   	GPIO_Init(TRIG_PORT, &GPIO_InitStructure);		 
-
+		GPIO_ResetBits(TRIG_PORT, TRIG_PIN);
 
 	/*开启外设时钟*/
 	RCC_APB2PeriphClockCmd(ECHO_RCC, ENABLE); 

@@ -465,8 +465,8 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\output
 \startup_stm32f10x_md.d -o.\output\startup_stm32f10x_md.o -IC:\Keil\ARM\INC -IC
-:\Keil\ARM\INC\ST\STM32F10x --predefine="__MICROLIB SETA 1" --list=.\startup_st
-m32f10x_md.lst Source\CMSIS\startup\startup_stm32f10x_md.s
+:\Keil\ARM\INC\STMicroelectronics --predefine="__MICROLIB SETA 1" --list=.\star
+tup_stm32f10x_md.lst Source\CMSIS\startup\startup_stm32f10x_md.s
 
 
 
