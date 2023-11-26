@@ -35,12 +35,12 @@ void app_LineWalking(void)
 
 	if( (LineL1 == LOW || LineL2 == LOW) && LineR2 == LOW)	  //左大弯
     {
-      	Car_SpinLeft(7000, 7000);
+      	Car_SpinLeft(3500, 3500);
 		delay_ms(80);
     }
     else if ( LineL1 == LOW && (LineR1 == LOW || LineR2 == LOW))	 //右大弯
 	{ 
-      	Car_SpinRight(7000, 7000);
+      	Car_SpinRight(3500, 3500);
 		delay_ms(80);
     }  
     else if( LineL1 == LOW )	   //左最外侧检测

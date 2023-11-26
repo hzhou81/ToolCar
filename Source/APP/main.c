@@ -27,6 +27,6 @@ int main(void)
 	while (1)
 	{
 		app_bluetooth_deal();
-		app_LineWalking();
+		//app_LineWalking();
 	}
 }
