@@ -285,8 +285,8 @@ uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
   /* Check the parameters */
   assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
   assert_param(IS_GET_GPIO_PIN(GPIO_Pin)); 
-  
-  if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+  /*读取GPIO的IDR寄存器，寄存器中的某位做与操作，高电平就是Bit_SET=1，低电平就是Bit_RESET=0*/
+  if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)	
   {
     bitstatus = (uint8_t)Bit_SET;
   }

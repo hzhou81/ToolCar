@@ -82,7 +82,7 @@ void app_bluetooth_deal(void)
 	switch (g_modeSelect)
 	{
 		case 1: break; 								//暂时保留
-		case 2: app_LineWalking(); break; 			//巡线模式
+		case 2: app_LineWalking1(); break; 			//巡线模式
 		case 3: app_ultrasonic_mode();  break;  	//超声波避障模式
 		case 4: app_colorMode(); break;  //七彩颜色识别模式
 		case 5: app_LightSeeking(); break;  		//寻光模式

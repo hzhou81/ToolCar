@@ -64,8 +64,8 @@
 #define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //输出 
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
 
-#define LOW		(0)
-#define HIGH	(1)
+#define LOW		(0)	  //黑色
+#define HIGH	(1)   //白色
 
 #define ON      (1)
 #define OFF     (0)
