@@ -13,6 +13,7 @@
 #include "app_motor.h"
 #include "sys.h"
 #include "bsp_motor.h"
+#include "delay.h"
 
 #define  LeftMotor_Go()			{GPIO_SetBits(Motor_Port, Left_MotoA_Pin); GPIO_ResetBits(Motor_Port, Left_MotoB_Pin);}
 #define  LeftMotor_Back()		{GPIO_ResetBits(Motor_Port, Left_MotoA_Pin); GPIO_SetBits(Motor_Port, Left_MotoB_Pin);}
@@ -164,4 +165,25 @@ void Car_SpinRight(int LeftSpeed, int RightSpeed)
 
 	LeftMotorPWM(LeftSpeed);		  
 	RightMotorPWM(RightSpeed);		
+}
+
+/**
+* Function       Car_TurnAround
+* @author        孙汇洲
+* @date          2023.12.18    
+* @brief         小车顺车掉头后停止
+* @param[in]     LeftSpeed：左电机速度  RightSpeed：右电机速度 取值范围：（0~7200）
+* @param[out]    void
+* @retval        void
+* @par History   无
+*/
+void Car_TurnAround(int LeftSpeed,int RightSpeed)
+{
+	//Car_Left(LeftSpeed);
+	//delay_ms(1000);
+	Car_SpinRight(LeftSpeed,RightSpeed);
+	delay_ms(1250);
+	Car_SpinRight(LeftSpeed,RightSpeed);
+	delay_ms(1250);
+	Car_Stop();
 }

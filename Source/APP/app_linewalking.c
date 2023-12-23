@@ -120,3 +120,70 @@ void app_LineWalking1(void)
 		Car_Run(CAR_SPEED);
 	}	
 }
+
+/**
+* Function       app_LineWalking2
+* @author        孙汇洲
+* @date          2023.12.16    
+* @brief         巡线模式运动(新的应用于二手车交易中心的模式)
+* @param[in]     void
+* @param[out]    int 1:代表还需要继续运货，0:代表到达终点，小车顺车掉头，停止运货
+* @retval        void
+* @par History   无
+*/
+int app_LineWalking2(void)
+{
+	int LineL1 = 1, LineL2 = 1, LineR1 = 1, LineR2 = 1;
+
+	bsp_GetLineWalking(&LineL1, &LineL2, &LineR1, &LineR2);	 //获得黑线检测状态
+	/*
+	if( (LineL1 == LOW || LineL2 == LOW) && LineR2 == LOW)	  //左大弯
+    {
+      	Car_SpinLeft(3500, 3500);
+		delay_ms(80);
+    }
+    else if ( LineL1 == LOW && (LineR1 == LOW || LineR2 == LOW))	 //右大弯
+	{ 
+      	Car_SpinRight(3500, 3500);
+		delay_ms(80);
+    }  
+    else */
+	if( LineL1 == LOW && LineL2==LOW && LineR1==LOW && LineR2==HIGH)	   //左直角转弯
+    {  
+		Car_SpinLeft(SPIN_SPEED, SPIN_SPEED);
+		delay_ms(DELAY_TIME);
+		return 1;
+	}
+    else if ( LineR2 == LOW && LineR1==LOW && LineL2==LOW && LineL1==HIGH)  	//右直角转弯
+    {  
+		Car_SpinRight(SPIN_SPEED, SPIN_SPEED);
+		delay_ms(DELAY_TIME);
+		return 1;
+	}
+    else if (LineL2 == LOW && LineR1 == HIGH)	  //中间黑线上的传感器微调车左转
+    {   
+		Car_Left(CAR_SPEED);  
+		return 1; 
+	}
+	else if (LineL2 == HIGH && LineR1 == LOW)	  //中间黑线上的传感器微调车右转
+    {   
+		Car_Right(CAR_SPEED);
+		return 1;   
+	}
+    else if(LineL2 == LOW && LineR1 == LOW) // 直线前进
+    {  
+		Car_Run(CAR_SPEED);
+		return 1;
+	}
+	else if(LineL1==LOW && LineL2==LOW && LineR1==LOW && LineR2==LOW)
+	//else
+	{
+		Car_SpinRight(SPIN_SPEED, SPIN_SPEED);
+		delay_ms(DELAY_TIME);
+		Car_SpinRight(SPIN_SPEED, SPIN_SPEED);
+		delay_ms(DELAY_TIME);
+		return 0;
+	}else{
+		return 1;
+	}	
+}

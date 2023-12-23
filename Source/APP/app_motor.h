@@ -27,7 +27,7 @@ void Car_Stop(void);
 void Car_SpinStop(void);
 void Car_SpinLeft(int LeftSpeed, int RightSpeed);
 void Car_SpinRight(int LeftSpeed, int RightSpeed);
-
+void Car_TurnAround(int LeftSpeed,int RightSpeed);
 
 #endif
 

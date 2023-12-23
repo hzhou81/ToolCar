@@ -17,7 +17,7 @@
 
 void app_LineWalking(void);
 void app_LineWalking1(void);
-
+int app_LineWalking2(void);
 #endif
 
 

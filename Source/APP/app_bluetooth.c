@@ -86,7 +86,9 @@ void app_bluetooth_deal(void)
 		case 3: app_ultrasonic_mode();  break;  	//超声波避障模式
 		case 4: app_colorMode(); break;  //七彩颜色识别模式
 		case 5: app_LightSeeking(); break;  		//寻光模式
-		case 6: app_IRFollow(); break;  			//跟随模式
+		case 6: 
+			//app_IRFollow(); 
+			break;  			//跟随模式
 		default:break;
 	}
 	

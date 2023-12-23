@@ -15,3 +15,4 @@
 .\output\app_motor.o: .\Source\FWlib\inc\stm32f10x_usart.h
 .\output\app_motor.o: .\Source\FWlib\inc\misc.h
 .\output\app_motor.o: .\Source\PUBLIC\sys\sys.h
+.\output\app_motor.o: .\Source\PUBLIC\delay\delay.h
