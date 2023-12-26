@@ -182,8 +182,6 @@ void Car_TurnAround(int LeftSpeed,int RightSpeed)
 	//Car_Left(LeftSpeed);
 	//delay_ms(1000);
 	Car_SpinRight(LeftSpeed,RightSpeed);
-	delay_ms(1250);
-	Car_SpinRight(LeftSpeed,RightSpeed);
-	delay_ms(1250);
+	delay_ms(750);
 	Car_Stop();
 }

@@ -61,7 +61,7 @@
 ### ADS-LD Output File: '.\output\bluetooth_control.axf'
 ### ADS-LD Command File: '.\output\bluetooth_control.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\output\bluetooth_control.lnp', Handle=0x00000F08
+### Creating CmdFile '.\output\bluetooth_control.lnp', Handle=0x00000E44
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\output\bluetooth_control.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
