@@ -29,15 +29,17 @@ int main(void)
 	int L1_old=HIGH;
 	int L1=HIGH;
 	int R1=HIGH;//左光敏元器件和右光敏元器件的变量值
-	int isRunning=0;	
+	int isStart=0;	 //启动标志
+	int isRunning=0; //运行标志
 	int iGs=0;
 	int LineL1 = 1, LineL2 = 1, LineR1 = 1, LineR2 = 1;
+	int Len=0;
 	/*外设初始化*/
 	bsp_init();
 
 	while (1)
 	{	
-		if(isRunning==1){
+		if(isStart==1 && isRunning==1){
 			bsp_GetLineWalking(&LineL1, &LineL2, &LineR1, &LineR2);	 //获得黑线检测状态
 			if( LineL1 == LOW && LineL2==LOW && LineR1==LOW && LineR2==HIGH)	   //左直角转弯
     		{  
@@ -73,7 +75,7 @@ int main(void)
 
 		iGs=Get_GS_Value();//从灰度传感器获取值
 		if(iGs<2500){//遇到白色终点就调头
-			isRunning=0;
+			isStart=0;
 			Car_TurnAround(SPIN_SPEED,SPIN_SPEED);
 			//delay_ms(DELAY_LONG_TIME);
 		}
@@ -81,10 +83,17 @@ int main(void)
 		L1_old=L1;
 		bsp_GetLightSeeking(&L1, &R1);//从驱动层获取值, 我把光敏元器件插在左，所以只有L1能读到数值
 		if(L1!=L1_old){
-			isRunning=1;
+			isStart=1;
 			delay_ms(DELAY_TIME);//光线变化后不要马上启动车子
 		}
 		
+		Len=(u16)bsp_getUltrasonicDistance();
+		if(Len<=30){//遇到障碍物停车
+			isRunning=0;
+			Car_Stop();
+		}else if(Len>30){//障碍物拿开后继续启动
+			isRunning=1;
+		}
 		//app_bluetooth_deal();
 	}
 }
