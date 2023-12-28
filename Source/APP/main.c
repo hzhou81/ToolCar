@@ -1,7 +1,7 @@
 /**
 * @par Copyright (C): 2010-2019, Shenzhen Yahboom Tech
 * @file         main.c	
-* @author       liusen
+* @author       Ëï»ãÖÞ
 * @version      V1.0
 * @date         2017.07.17
 * @brief        Ö÷º¯Êý
