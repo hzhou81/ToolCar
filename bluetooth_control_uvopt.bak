@@ -251,10 +251,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>12</ColumnNumber>
+      <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>44</TopLine>
-      <CurrentLine>69</CurrentLine>
+      <TopLine>14</TopLine>
+      <CurrentLine>23</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Source\APP\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -2166,9 +2166,9 @@
       <Documents>
         <Doc>
           <Name>.\Source\APP\main.c</Name>
-          <ColumnNumber>22</ColumnNumber>
-          <TopLine>14</TopLine>
-          <CurrentLine>23</CurrentLine>
+          <ColumnNumber>84</ColumnNumber>
+          <TopLine>38</TopLine>
+          <CurrentLine>64</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Source\APP\app_motor.c</Name>

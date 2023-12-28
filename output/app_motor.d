@@ -16,3 +16,5 @@
 .\output\app_motor.o: .\Source\FWlib\inc\misc.h
 .\output\app_motor.o: .\Source\PUBLIC\sys\sys.h
 .\output\app_motor.o: .\Source\PUBLIC\delay\delay.h
+.\output\app_motor.o: .\Source\BSP\bsp_lightseeking.h
+.\output\app_motor.o: .\Source\BSP\bsp_linewalking.h

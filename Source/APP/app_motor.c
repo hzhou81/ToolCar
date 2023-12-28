@@ -14,6 +14,8 @@
 #include "sys.h"
 #include "bsp_motor.h"
 #include "delay.h"
+#include "bsp_lightseeking.h"
+#include "bsp_linewalking.h"
 
 #define  LeftMotor_Go()			{GPIO_SetBits(Motor_Port, Left_MotoA_Pin); GPIO_ResetBits(Motor_Port, Left_MotoB_Pin);}
 #define  LeftMotor_Back()		{GPIO_ResetBits(Motor_Port, Left_MotoA_Pin); GPIO_SetBits(Motor_Port, Left_MotoB_Pin);}
@@ -179,9 +181,16 @@ void Car_SpinRight(int LeftSpeed, int RightSpeed)
 */
 void Car_TurnAround(int LeftSpeed,int RightSpeed)
 {
+	int LineL1 = 1, LineL2 = 1, LineR1 = 1, LineR2 = 1;
 	//Car_Left(LeftSpeed);
 	//delay_ms(1000);
 	Car_SpinRight(LeftSpeed,RightSpeed);
-	delay_ms(750);
+	delay_ms(500);
+	while(1){
+		bsp_GetLineWalking(&LineL1, &LineL2, &LineR1, &LineR2);	 //»ñµÃºÚÏß¼ì²â×´Ì¬
+		if(LineL2==LOW || LineR1==LOW) break;
+		Car_SpinRight(LeftSpeed,RightSpeed);
+		delay_ms(10);
+	}
 	Car_Stop();
 }
